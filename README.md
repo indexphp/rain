@@ -1,17 +1,17 @@
-    Condensate [RAIN]
+    Eltrade [ELTI]
 
 Algorithm: 			    X11
 
-Port:					23373
+Port:					23393
 
-RPC port:				23372
+RPC port:				23392
 
-Coin supply: 			500,000,000
+Coin supply: 			20,000,000
 
-Yearly interest: 		200%
+Yearly interest: 		6%
 
-Proof of Work Reward: 	Random?!
+Proof of Work Reward: 	10
 
-Difficulty retarget: 	1 minute
+Difficulty retarget: 	2 minute
 
-Block reward reduced by 75% at block 37210
+Block reward reduced by 50% at block 525600
