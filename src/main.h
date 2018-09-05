@@ -25,29 +25,25 @@ class CInv;
 class CRequestTracker;
 class CNode;
 
-static const int LAST_POW_BLOCK = 200000;
+static const int LAST_POW_BLOCK = 788400;
 
 static const unsigned int MAX_BLOCK_SIZE = 4000000;
 static const unsigned int MAX_BLOCK_SIZE_GEN = MAX_BLOCK_SIZE/2;
 static const unsigned int MAX_BLOCK_SIGOPS = MAX_BLOCK_SIZE/50;
 static const unsigned int MAX_ORPHAN_TRANSACTIONS = MAX_BLOCK_SIZE/100;
 static const unsigned int MAX_INV_SZ = 50000;
-static const int64_t MIN_TX_FEE = 0.001 * COIN;
+static const int64_t MIN_TX_FEE = 0.0002 * COIN;
 static const int64_t MIN_RELAY_TX_FEE = MIN_TX_FEE;
-static const int64_t MAX_MONEY = 5000000 * COIN;
-static const int64_t COIN_YEAR_REWARD = 200 * CENT;
+static const int64_t MAX_MONEY = 20000000 * COIN;
+static const int64_t COIN_YEAR_REWARD = 6 * CENT;
 
 inline bool MoneyRange(int64_t nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 // Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp.
 static const unsigned int LOCKTIME_THRESHOLD = 500000000; // Tue Nov  5 00:53:20 1985 UTC
 
 
-//static const uint256 hashGenesisBlock("0x000007184413ad251c22525864c0cc573990121f847f0e0150f5e13b7ad0f4d3");
-//static const uint256 hashGenesisBlockTestNet("0x000007184413ad251c22525864c0cc573990121f847f0e0150f5e13b7ad0f4d3");
-
-
-static const uint256 hashGenesisBlock("0x00000214a121e055869d35aa132433027b11242914a7f5910327b123d6939d7b");
-static const uint256 hashGenesisBlockTestNet("0x00000214a121e055869d35aa132433027b11242914a7f5910327b123d6939d7b");
+static const uint256 hashGenesisBlock("0x");
+static const uint256 hashGenesisBlockTestNet("0x");
 
 
 inline int64_t PastDrift(int64_t nTime)   { return nTime - 30 * 60; } // up to 30 minutes from the past
