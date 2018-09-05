@@ -39,10 +39,10 @@ CBigNum bnProofOfWorkLimit(~uint256(0) >> 20);			// "standard" target limit for 
 CBigNum bnProofOfStakeLimit(~uint256(0) >> 20);
 CBigNum bnProofOfWorkLimitTestNet(~uint256(0) >> 16);
 
-unsigned int nTargetSpacing     = 60;					// 60 seconds
-unsigned int nStakeMinAge       = 4 * 60 * 60;			// 4 hour
-unsigned int nStakeMaxAge       = 10 * 24 * 60 * 60;	// 30 days
-unsigned int nModifierInterval  = 10 * 60;				// time to elapse before new modifier is computed
+unsigned int nTargetSpacing     = 60;				// 60 seconds
+unsigned int nStakeMinAge       = 24 * 60 * 60;			// 24 hour
+unsigned int nStakeMaxAge       = 365 * 24 * 60 * 60;     	// 365 days
+unsigned int nModifierInterval  = 10 * 60;			// time to elapse before new modifier is computed
 
 int nCoinbaseMaturity = 30;
 CBlockIndex* pindexGenesisBlock = NULL;
@@ -68,7 +68,7 @@ map<uint256, set<uint256> > mapOrphanTransactionsByPrev;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "rain Signed Message:\n";
+const string strMessageMagic = "Eltrade Signed Message:\n";
 
 // Settings
 int64_t nTransactionFee = MIN_TX_FEE;
@@ -990,18 +990,16 @@ int64_t GetProofOfWorkReward(int nHeight, int64_t nFees, uint256 prevHash)
     int64_t nSubsidy = 0;
 	std::string cseed_str = prevHash.ToString().substr(7,7);
     const char* cseed = cseed_str.c_str();
-    long seed = hex2long(cseed);
-    int rand = generateMTRandom(seed, 1800);
-    int rand2 = generateMTRandom(seed, 450);
+
                                                                                    
     if (nHeight <= 10)
         nSubsidy = 0;
-    else if (nHeight <= 20)
-        nSubsidy = 2000000 * COIN;
-    else if (nHeight <= 37210)
-        nSubsidy = (20 + rand) * COIN;
+    else if (nHeight <= 11)
+        nSubsidy = 5000000 * COIN;
+    else if (nHeight <= 525600)
+        nSubsidy = 10 * COIN;
     else if (nHeight <= LAST_POW_BLOCK)
-        nSubsidy = (20 + rand2) * COIN;
+        nSubsidy = 5 * COIN;
 
     if (fDebug && GetBoolArg("-printcreation"))
         printf("GetProofOfWorkReward() : create=%s nSubsidy=%"PRId64"\n", FormatMoney(nSubsidy).c_str(), nSubsidy);
