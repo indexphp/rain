@@ -1,6 +1,6 @@
 TEMPLATE = app
-TARGET = Condensation-qt
-VERSION = 1.0.0.1
+TARGET = Eltrade-qt
+VERSION = 0.0.0.1
 INCLUDEPATH += src src/json src/qt src/qt/plugins/mrichtexteditor
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
 CONFIG += no_include_pwd
@@ -472,8 +472,8 @@ macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm \
                           src/qt/macnotificationhandler.mm
 macx:LIBS += -framework Foundation -framework ApplicationServices -framework AppKit
 macx:DEFINES += MAC_OSX MSG_NOSIGNAL=0
-macx:ICON = src/qt/res/icons/rain.icns
-macx:TARGET = "rain-qt"
+macx:ICON = src/qt/res/icons/eltrade.icns
+macx:TARGET = "eltrade-qt"
 macx:QMAKE_CFLAGS_THREAD += -pthread
 macx:QMAKE_LFLAGS_THREAD += -pthread
 macx:QMAKE_CXXFLAGS_THREAD += -pthread
