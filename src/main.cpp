@@ -2468,7 +2468,7 @@ bool LoadBlockIndex(bool fAllowNew)
         if (!fAllowNew)
             return false;
 
-        const char* pszTimestamp = "Cloudy with a 40% chance of precipitation";
+        const char* pszTimestamp = "Are Video Games Olympic Material?";
         CTransaction txNew;
         txNew.nTime = 1536137388;
         txNew.vin.resize(1);
